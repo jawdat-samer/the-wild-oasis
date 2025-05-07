@@ -1,0 +1,297 @@
+{
+	"info": {
+		"_postman_id": "3e3e98e6-94c4-4439-bf08-45d23a0f777d",
+		"name": "The Wild Oasis",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37214280"
+	},
+	"item": [
+		{
+			"name": "Settings",
+			"item": [
+				{
+					"name": "Get Settings",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3500/api/v1/settings",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3500",
+							"path": [
+								"api",
+								"v1",
+								"settings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Settings",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"minBookingLength\": 1,\r\n    \"maxBookingLength\": 15,\r\n    \"maxGuestsPerBooking\": 10,\r\n    \"breakfastPrice\": 150\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3500/api/v1/settings",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3500",
+							"path": [
+								"api",
+								"v1",
+								"settings"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cabins",
+			"item": [
+				{
+					"name": "Get All Cabins",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3500/api/v1/cabins",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3500",
+							"path": [
+								"api",
+								"v1",
+								"cabins"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Cabin",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3500/api/v1/cabins/52",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3500",
+							"path": [
+								"api",
+								"v1",
+								"cabins",
+								"52"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Cabin",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "maxCapacity",
+									"value": "5",
+									"type": "text"
+								},
+								{
+									"key": "regularPrice",
+									"value": "500",
+									"type": "text"
+								},
+								{
+									"key": "discount",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/pc/Pictures/14.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3500/api/v1/cabins/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3500",
+							"path": [
+								"api",
+								"v1",
+								"cabins",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Cabin",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "test",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "maxCapacity",
+									"value": "5",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "regularPrice",
+									"value": "600",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "discount",
+									"value": "550",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "description",
+									"value": " ",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/pc/Pictures/14.jpg",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3500/api/v1/cabins/54",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3500",
+							"path": [
+								"api",
+								"v1",
+								"cabins",
+								"54"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Cabin",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3500/api/v1/cabins/52",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3500",
+							"path": [
+								"api",
+								"v1",
+								"cabins",
+								"52"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

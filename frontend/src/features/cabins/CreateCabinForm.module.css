@@ -1,0 +1,93 @@
+.form {
+  padding: 2.4rem 4rem;
+  background-color: var(--color-grey-0);
+  border: 1px solid var(--color-grey-100);
+  border-radius: var(--border-radius-md);
+  overflow: hidden;
+  font-size: 1.4rem;
+  width: 100%;
+}
+
+.form div {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 24rem 1fr 1.2fr;
+  gap: 2.4rem;
+  padding: 1.2rem 0;
+}
+
+.form div:first-child {
+  padding-top: 0;
+}
+
+.form div:last-child {
+  padding-bottom: 0;
+}
+
+.form div:not(:last-child) {
+  border-bottom: 1px solid var(--color-grey-100);
+}
+
+.form div:has(button) {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1.2rem;
+}
+
+.form label {
+  font-weight: 500;
+}
+
+.form input {
+  border: 1px solid var(--color-grey-300);
+  background-color: var(--color-grey-0);
+  border-radius: var(--border-radius-sm);
+  padding: 0.8rem 1.2rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.form span {
+  font-size: 1.4rem;
+  color: var(--color-red-700);
+}
+
+.form textarea {
+  padding: 0.8rem 1.2rem;
+  border: 1px solid var(--color-grey-300);
+  border-radius: 5px;
+  background-color: var(--color-grey-0);
+  box-shadow: var(--shadow-sm);
+  width: 100%;
+  height: 8rem;
+}
+
+.form .file {
+  font-size: 1.4rem;
+  border-radius: var(--border-radius-sm);
+}
+
+.form .file::file-selector-button {
+  font: inherit;
+  font-weight: 500;
+  padding: 0.8rem 1.2rem;
+  margin-right: 1.2rem;
+  border-radius: var(--border-radius-sm);
+  border: none;
+  color: var(--color-brand-50);
+  background-color: var(--color-brand-600);
+  cursor: pointer;
+  transition: color 0.2s, background-color 0.2s;
+}
+
+.form .file::file-selector-button:hover {
+  background-color: var(--color-brand-700);
+}
+
+.form .error {
+  font-size: 1.4rem;
+  color: var(--color-red-700);
+}
+
+.form.modal {
+  width: 80rem;
+}

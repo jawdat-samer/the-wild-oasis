@@ -1,0 +1,73 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Booking {
+  id           Int      @id @default(autoincrement())
+  startDate    DateTime @db.DateTime(3)
+  endDate      DateTime @db.DateTime(3)
+  numNights    Int
+  numGuests    Int
+  cabinPrice   Float
+  extrasPrice  Float
+  totalPrice   Float
+  status       Status   @default(unconfirmed)
+  hasBreakfast Boolean  @default(false)
+  isPaid       Boolean  @default(false)
+  observation  String?
+  guestId      Int
+  guest        Guest    @relation(fields: [guestId], references: [id], onUpdate: Cascade, onDelete: NoAction)
+  cabinId      Int
+  cabin        Cabin    @relation(fields: [cabinId], references: [id], onUpdate: Cascade, onDelete: NoAction)
+}
+
+enum Status {
+  unconfirmed
+  checkedIn
+  checkedOut
+}
+
+model Cabin {
+  id           Int       @id @default(autoincrement())
+  name         String    @db.VarChar(300)
+  maxCapacity  Int
+  regularPrice Float
+  discount     Float     @default(0)
+  description  String?
+  image        String?   @db.VarChar(300)
+  createdAt    DateTime  @default(now()) @db.Timestamp(3)
+  booking      Booking[]
+}
+
+model Guest {
+  id          Int       @id @default(autoincrement())
+  fullName    String
+  email       String    @db.VarChar(300)
+  nationalID  String    @db.VarChar(300)
+  nationality String    @db.VarChar(300)
+  countryFlag String    @db.VarChar(300)
+  createdAt   DateTime  @default(now()) @db.Timestamp(3)
+  booking     Booking[]
+}
+
+model Setting {
+  id                  Int   @id @default(autoincrement())
+  minBookingLength    Int
+  maxBookingLength    Int
+  maxGuestsPerBooking Int
+  breakfastPrice      Float
+}
+
+// model User {}
